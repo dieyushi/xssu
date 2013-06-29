@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XSSU</title>
+  <meta name="author" content="">
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+<!--  <style>body{padding-top:60px; }</style>-->
+  <style>
+    html,
+    body {
+      height: 100%;
+      /* The html and body elements cannot have any padding or margin. */
+    }
+
+    /* Wrapper for page content to push down footer */
+    #wrap {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
+      /* Negative indent footer by it's height */
+      margin: 0 auto -60px;
+    }
+
+    /* Set the fixed height of the footer here */
+    #push,
+    #footer {
+      height: 60px;
+    }
+    #footer {
+      background-color: #f5f5f5;
+    }
+
+    /* Lastly, apply responsive CSS fixes as necessary */
+    @media (max-width: 767px) {
+      #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  
+  .bs-docs-sidenav {
+    width: 228px;
+    margin: 30px 0 0;
+    padding: 0;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+       -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+            box-shadow: 0 1px 4px rgba(0,0,0,.065);
+  }
+  .bs-docs-sidenav > li > a {
+    display: block;
+    width: 190px \9;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+  }
+  .bs-docs-sidenav > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+       -moz-border-radius: 6px 6px 0 0;
+            border-radius: 6px 6px 0 0;
+  }
+  .bs-docs-sidenav > li:last-child > a {
+    -webkit-border-radius: 0 0 6px 6px;
+       -moz-border-radius: 0 0 6px 6px;
+            border-radius: 0 0 6px 6px;
+  }
+  .bs-docs-sidenav > .active > a {
+    position: relative;
+    z-index: 2;
+    padding: 9px 15px;
+    border: 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+       -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+            box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+  }
+  /* Chevrons */
+  .bs-docs-sidenav .icon-chevron-right {
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .25;
+  }
+  .bs-docs-sidenav > li > a:hover {
+    background-color: #f5f5f5;
+  }
+  .bs-docs-sidenav a:hover .icon-chevron-right {
+    opacity: .5;
+  }
+  .bs-docs-sidenav .active .icon-chevron-right,
+  .bs-docs-sidenav .active a:hover .icon-chevron-right {
+    background-image: url(../img/glyphicons-halflings-white.png);
+    opacity: 1;
+  }
+  .bs-docs-sidenav.affix {
+    top: 40px;
+  }
+  .bs-docs-sidenav.affix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 270px;
+  }
+</style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon-57-precomposed.png"></head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">XSSU</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                @Me
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a data-toggle="modal" href="#addworkerModal"> <i class="icon-plus"></i>
+                    Add Worker
+                  </a>
+                </li>
+                <li>
+                  <a data-toggle="modal" href="#resetpasswordModal"> <i class="icon-pencil"></i>
+                    Change Password
+                  </a>
+                </li>
+                <li>
+                  <a data-toggle="modal" href="#resetemailModal">
+                    <i class="icon-pencil"></i>
+                    Change Email
+                  </a>
+                </li>
+                <li>
+                  <a data-toggle="modal" href="#settingModal">
+                    <i class="icon-wrench"></i>
+                    Setting
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!--<li>
+            <a href="/modules">Modules</a>
+          </li>
+          -->
+          <li class="active">
+            <a href="/about">About</a>
+          </li>
+        </ul>
+        <div class="nav pull-right">
+          <form class="navbar-search pull-left" action="/search" id="searchform">
+            <input type="text" class="search-query" placeholder="Search" id="search-query" name="keyword"></form>
+
+          <ul class="nav pull-right">
+            <li id="logout" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-user"></i>
+                <span class="caret"></span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="/user">
+                      <i class="icon-user"></i>
+                      About Me
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout">
+                      <i class="icon-off"></i>
+                      Log Out
+                    </a>
+                  </li>
+                </ul>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav">
+        <li>
+          <a href="#dropdowns">
+            <i class="icon-chevron-right"></i>
+            Dropdowns
+          </a>
+        </li>
+        <li>
+          <a href="#buttonGroups">
+            <i class="icon-chevron-right"></i>
+            Button groups
+          </a>
+        </li>
+        <li>
+          <a href="#buttonDropdowns">
+            <i class="icon-chevron-right"></i>
+            Button dropdowns
+          </a>
+        </li>
+        <li>
+          <a href="#navs">
+            <i class="icon-chevron-right"></i>
+            Navs
+          </a>
+        </li>
+        <li>
+          <a href="#navbar">
+            <i class="icon-chevron-right"></i>
+            Navbar
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      </div>
+    </div>
+</div>
+
+<!-- /container -->
+
+<!-- Modal
+  ================================================== -->
+<form id="addworkform" action="/addworker/" data-remote="true" method="post">
+  <div id="addworkerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Add Worker</h3>
+    </div>
+    <div class="modal-body">
+      <input class="span6" type="text" placeholder="Notes" name="note"></div>
+    <div class="modal-footer">
+      <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+      <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+
+<form id="resetpasswordform" class="form-horizontal" action="/reset/password/" data-remote="true" method="post">
+  <div id="resetpasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Change Password</h3>
+    </div>
+    <div class="modal-body">
+      <div class="control-group">
+        <label class="control-label" for="password">Current password</label>
+        <div class="controls">
+          <input type="password" name="password" placeholder="Current password" required></div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="newpassword">New password</label>
+        <div class="controls">
+          <input type="password" name="newpassword" placeholder="New password" required></div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="repeatpassword">Reenter new password</label>
+        <div class="controls">
+          <input type="password" name="repeatpassword" placeholder="Reenter new password" required></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+      <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+
+<form id="resetemailform" class="form-horizontal" action="/reset/email/" data-remote="true" method="post">
+  <div id="resetemailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Change Email</h3>
+    </div>
+    <div class="modal-body">
+      <div class="control-group">
+        <label class="control-label" for="password">Current password</label>
+        <div class="controls">
+          <input type="password" name="password" placeholder="Current password" required></div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="email">New email</label>
+        <div class="controls">
+          <input type="email" name="email" placeholder="test@example.com" required></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+      <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+
+<form id="settingform" class="form-horizontal" action="/setting/" data-remote="true" method="post">
+  <div id="settingModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Setting</h3>
+    </div>
+    <div class="modal-body">
+      <label class="checkbox">
+        <input type="checkbox" name="emailsetting" value="1">Receive email notifications</label>
+    </div>
+
+    <div class="modal-footer">
+      <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+      <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+<!-- Le javascript
+  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
